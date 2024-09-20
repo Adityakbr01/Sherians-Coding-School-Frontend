@@ -1,14 +1,32 @@
 import React from "react";
 import "./Radil.css";
 import CountUp from "react-countup";
+import { useSelector } from "react-redux";
 
 function Sections_1() {
+  const toggleState = useSelector((state) => state.toggle.toggleState);
   return (
     <div className="relative flex flex-col items-center h-screen overflow-x-hidden md:pb-10 md:mb-[10rem] justify-evenly md:justify-between ">
-      <div className="Top-Blur-Container absolute -top-[56vh]">
-        <div className="absolute z-[-1] top-0 rounded-full left-1/2 -translate-x-1/2 w-[40vw] h-[40vh] shape1 "></div>
-        <div className="absolute z-[-1] top-0 rounded-full left-1/2 -translate-x-1/2 w-[40vw] h-[40vh] shape2 "></div>
-        <div className="absolute z-[-1] top-0 rounded-full left-1/2 -translate-x-1/2 w-[40vw] h-[40vh] shape3 "></div>
+      <div
+        className={`Top-Blur-Container absolute ${
+          toggleState ? "-top-[17vh]" : "-top-[40vh]"
+        }`}
+      >
+        <div
+          className={`absolute ${
+            toggleState ? "bg-[#26deff]" : "bg-[#24cfa7]"
+          } z-[-1] top-0 rounded-full left-1/2 -translate-x-1/2 w-[40vw] h-[40vh] shape1`}
+        ></div>
+        <div
+          className={`absolute ${
+            toggleState ? "bg-[#26deff]" : "bg-[#24cfa7]"
+          } z-[-1] top-0 rounded-full left-1/2 -translate-x-1/2 w-[40vw] h-[40vh] shape2`}
+        ></div>
+        <div
+          className={`absolute ${
+            toggleState ? "bg-[#26deff]" : "bg-[#24cfa7]"
+          } z-[-1] top-0 rounded-full left-1/2 -translate-x-1/2 w-[40vw] h-[40vh] shape3`}
+        ></div>
       </div>
       <div className="top"></div>
       <div className="relative flex flex-col items-center gap-10 md:justify-center middle">
@@ -34,7 +52,7 @@ function Sections_1() {
       </div>
       <div className="flex items-center mb-[] md:mb-0 justify-between gap-10 md:-mt-10 sm:px-0 bottom font-Neue lg:gap-36">
         <h2 className="flex flex-col items-center justify-center text-center font-Helvetica -gap-4">
-          <span className="text-[#ffffff] text-xl sm:text-4xl font-semibold font-Helvetica">
+          <span className="text-xl font-semibold sm:text-4xl font-Helvetica">
             <CountUp
               start={0}
               end={28}
@@ -46,7 +64,7 @@ function Sections_1() {
           <span className="text-sm font-Neue md:">Students Taought</span>
         </h2>
         <h2 className="flex flex-col items-center justify-center text-center -gap-4">
-          <span className="text-[#ffffff] text-xl sm:text-4xl font-semibold font-Helvetica">
+          <span className="text-xl font-semibold sm:text-4xl font-Helvetica">
             <CountUp
               start={0}
               end={11}
@@ -58,7 +76,7 @@ function Sections_1() {
           <span className="text-sm font-Neue md:text-xl">Instructors</span>
         </h2>
         <h2 className="flex flex-col items-center justify-center text-center -gap-4">
-          <span className="text-[#ffffff] text-xl sm:text-4xl font-semibold font-Helvetica">
+          <span className="text-xl font-semibold sm:text-4xl font-Helvetica">
             <CountUp
               start={0}
               end={430}

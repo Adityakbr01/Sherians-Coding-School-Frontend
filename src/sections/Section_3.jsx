@@ -1,6 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import ToggleBtn from "../Features/ToggleBtn";
 
 function Section_3() {
+  const toggleState = useSelector((state) => state.toggle);
+  console.log(toggleState);
   const data = [
     {
       img: "https://ik.imagekit.io/sheryians/courses_gif/Front-End_Domination__Create_Anything_with_Code-FRONTENDTHUBNAIL_Wf8WqcNJx.jpg",
@@ -36,13 +40,13 @@ function Section_3() {
     },
   ];
   return (
-    <div className="flex flex-col w-full px-[5%] ">
+    <div className="flex flex-col text-white w-full px-[5%] ">
       <h2 className="mb-6 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-Neue">
         Courses Offered
       </h2>
       <div className="grid grid-cols-1 gap-12 pb-6 overflow-hidden md:gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 card-container">
-        {data.map((item) => (
-          <div>
+        {data.map((item, index) => (
+          <div key={index}>
             <div className="course-wrapper max-h-[40rem] min-h-[37rem] pb-10 overflow-hidden bg-[#2C2C2C] rounded-md">
               <div className="relative img-course">
                 <img src={item.img} alt="" className="w-full h-auto" />
@@ -50,7 +54,7 @@ function Section_3() {
               <div className="p-6">
                 <div className="flex flex-col gap-8">
                   <h2 className="text-lg sm:text-xl md:text-2xl leading-[0.9] ">
-                    Fronted Domination: <br /> Create Anything with Code
+                    {item.title}
                   </h2>
                   <p className="text-[#c6c6c6] leading-[1.3] text-sm sm:text-base">
                     {item.desc.split(" ").slice(0, 10).join(" ")}...
@@ -59,8 +63,11 @@ function Section_3() {
               </div>
               <hr />
               <div className="flex flex-wrap gap-3 px-6 py-2">
-                {item.tags.map((tag) => (
-                  <button className="px-5 shine rounded-md py-2 bg-[#0c0c0c] text-xs sm:text-sm">
+                {item.tags.map((tag, index) => (
+                  <button
+                    key={index}
+                    className="px-5 shine rounded-md py-2 bg-[#0c0c0c] text-xs sm:text-sm"
+                  >
                     {tag}
                   </button>
                 ))}
